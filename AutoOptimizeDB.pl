@@ -93,9 +93,9 @@ sub _hdlr_optimize_database {
     my $dbh = MT::Object->driver->rw_handle;
     foreach (@tables) {
         my $sql = qq( OPTIMIZE TABLE `$_` );
-        $dbh->do ($sql)
-            or return MT->log ($dbh->errstr || $DBI::errstr);
+        $dbh->do ($sql) #or return MT->log ($dbh->errstr || $DBI::errstr);
     }
+    1;
 }
 
 1;
