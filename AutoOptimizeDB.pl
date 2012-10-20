@@ -1,12 +1,14 @@
 package MT::Plugin::OMV::AutoOptimizeDB;
+# $Id$
 
 use strict;
 use MT 4;
 use MT::Object;
 
-use vars qw( $MYNAME $VERSION );
-$MYNAME = 'AutoOptimizeDB';
-$VERSION = '0.01 DEVEL';
+use vars qw( $VENDOR $MYNAME $VERSION );
+($VENDOR, $MYNAME) = (split /::/, __PACKAGE__)[-2, -1];
+(my $revision = '$Rev$') =~ s/\D//g;
+$VERSION = '0.01'. ($revision ? ".$revision" : '');
 
 use base qw(MT::Plugin);
 my $plugin = __PACKAGE__->new({
